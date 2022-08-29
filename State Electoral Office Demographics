@@ -1,0 +1,197 @@
+## Load in data
+dataset3 <- read.delim(file.choose())
+
+##PRIMPT:
+#explanation of what analysis entails
+#how many of them could we match analysis to of the whole set
+# how many nulls do we have
+## Isolate by different Tiers, which are different levels of office   
+
+## Look at Michigan data
+michigan <- subset(dataset3, POSITION_STATE == "MI")
+#Give breakdowns per level
+######State Level
+        table(michigan$RACE)
+        table(michigan$GENDER)
+        table(michigan$AGE)
+        table(michigan$MARITAL_STATUS)
+        table(michigan$INCOME_MODEL)
+        table(michigan$CATALISTSYNTHETIC_URBANITY_MODEL)
+        mean(michigan$IDEOLOGY_MODEL, na.rm =TRUE)
+        median(michigan$IDEOLOGY_MODEL, na.rm =TRUE)
+      
+   
+   ##Tier 1/name those significant individuals     
+        michigan1 <- subset(dataset3, subset = (POSITION_STATE == "MI") & (TIER == "1"))
+              table(michigan1$RACE)
+              table(michigan1$GENDER)
+              table(michigan1$AGE)
+              table(michigan1$MARITAL_STATUS)
+              table(michigan1$INCOME_MODEL)
+              table(michigan1$CATALISTSYNTHETIC_URBANITY_MODEL)
+              mean(michigan1$IDEOLOGY_MODEL, na.rm =TRUE)
+              median(michigan1$IDEOLOGY_MODEL, na.rm =TRUE)
+        
+  ##Tier 2
+        michigan2 <- subset(dataset3, subset = (POSITION_STATE == "MI") & (TIER == "2"))
+              table(michigan2$RACE)
+              table(michigan2$GENDER)
+              table(michigan2$AGE)
+              table(michigan2$MARITAL_STATUS)
+              table(michigan2$INCOME_MODEL)
+              table(michigan2$CATALISTSYNTHETIC_URBANITY_MODEL)
+              mean(michigan2$IDEOLOGY_MODEL, na.rm =TRUE)
+              median(michigan2$IDEOLOGY_MODEL, na.rm =TRUE)
+              
+      
+  ##Tier 3
+        michigan3 <- subset(dataset3, subset = (POSITION_STATE == "MI") & (TIER == "3"))
+              table(michigan3$RACE)
+              table(michigan3$GENDER)
+              table(michigan3$AGE)
+              table(michigan3$MARITAL_STATUS)
+              table(michigan3$INCOME_MODEL)
+              table(michigan3$CATALISTSYNTHETIC_URBANITY_MODEL)
+              mean(michigan3$IDEOLOGY_MODEL, na.rm =TRUE)
+              median(michigan3$IDEOLOGY_MODEL, na.rm =TRUE)
+              
+
+  ##Tier 4
+        michigan4 <- subset(dataset3, subset = (POSITION_STATE == "MI") & (TIER == "4"))
+              table(michigan4$RACE)
+              table(michigan4$GENDER)
+              table(michigan4$AGE)
+              table(michigan4$MARITAL_STATUS)
+              table(michigan4$INCOME_MODEL)
+              table(michigan4$CATALISTSYNTHETIC_URBANITY_MODEL)
+              mean(michigan4$IDEOLOGY_MODEL, na.rm =TRUE)
+              median(michigan4$IDEOLOGY_MODEL, na.rm =TRUE)
+              
+        
+
+texas <- subset(dataset3, POSITION_STATE == "TX")
+
+    #Give breakdowns per level
+    ######State Level
+    table(texas$RACE)
+    table(texas$GENDER)
+    table(texas$AGE)
+    table(texas$MARITAL_STATUS)
+    table(texas$INCOME_MODEL)
+    table(texas$CATALISTSYNTHETIC_URBANITY_MODEL)
+    mean(texas$IDEOLOGY_MODEL, na.rm =TRUE)
+    median(texas$IDEOLOGY_MODEL, na.rm =TRUE)
+    
+    
+    ##Tier 1/name those signigiant individuals     
+    texas1 <- subset(dataset3, subset = (POSITION_STATE == "TX") & (TIER == "1"))
+    table(texas1$RACE)
+    table(texas1$GENDER)
+    table(texas1$AGE)
+    table(texas1$MARITAL_STATUS)
+    table(texas1$INCOME_MODEL)
+    table(texas1$CATALISTSYNTHETIC_URBANITY_MODEL)
+    mean(texas1$IDEOLOGY_MODEL, na.rm =TRUE)
+    median(texas1$IDEOLOGY_MODEL, na.rm =TRUE)
+    
+    
+    ##Tier 2
+    texas2 <- subset(dataset3, subset = (POSITION_STATE == "TX") & (TIER == "2"))
+    table(texas2$RACE)
+    table(texas2$GENDER)
+    table(texas2$AGE)
+    table(texas2$MARITAL_STATUS)
+    table(texas2$INCOME_MODEL)
+    table(texas2$CATALISTSYNTHETIC_URBANITY_MODEL)
+    mean(texas2$IDEOLOGY_MODEL, na.rm =TRUE)
+    median(texas2$IDEOLOGY_MODEL, na.rm =TRUE)
+    
+    
+    ##Tier 3
+    texas3 <- subset(dataset3, subset = (POSITION_STATE == "TX") & (TIER == "3"))
+    table(texas3$RACE)
+    table(texas3$GENDER)
+    table(texas3$AGE)
+    table(texas3$MARITAL_STATUS)
+    table(texas3$INCOME_MODEL)
+    table(texas3$CATALISTSYNTHETIC_URBANITY_MODEL)
+    mean(texas3$IDEOLOGY_MODEL, na.rm =TRUE)
+    median(texas3$IDEOLOGY_MODEL, na.rm =TRUE)
+    
+    
+    ##Tier 4
+    texas4 <- subset(dataset3, subset = (POSITION_STATE == "TX") & (TIER == "4"))
+    table(texas4$RACE)
+    table(texas4$GENDER)
+    table(texas4$AGE)
+    table(texas4$MARITAL_STATUS)
+    table(texas4$INCOME_MODEL)
+    table(texas4$CATALISTSYNTHETIC_URBANITY_MODEL)
+    mean(texas4$IDEOLOGY_MODEL, na.rm =TRUE)
+    median(texas4$IDEOLOGY_MODEL, na.rm =TRUE)
+
+
+penn <- subset(dataset3, POSITION_STATE == "PA")
+
+#Give breakdowns per level
+######State Level
+table(penn$RACE)
+table(penn$GENDER)
+table(penn$AGE)
+table(penn$MARITAL_STATUS)
+table(penn$INCOME_MODEL)
+table(penn$CATALISTSYNTHETIC_URBANITY_MODEL)
+mean(penn$IDEOLOGY_MODEL, na.rm =TRUE)
+median(penn$IDEOLOGY_MODEL, na.rm =TRUE)
+
+
+##Tier 1/name those signigiant individuals     
+penn1 <- subset(dataset3, subset = (POSITION_STATE == "PA") & (TIER == "1"))
+table(penn1$RACE)
+table(penn1$GENDER)
+table(penn1$AGE)
+table(penn1$MARITAL_STATUS)
+table(penn1$INCOME_MODEL)
+table(penn1$CATALISTSYNTHETIC_URBANITY_MODEL)
+mean(penn1$IDEOLOGY_MODEL, na.rm =TRUE)
+median(penn1$IDEOLOGY_MODEL, na.rm =TRUE)
+
+
+##Tier 2
+penn2 <- subset(dataset3, subset = (POSITION_STATE == "PA") & (TIER == "2"))
+table(penn2$RACE)
+table(penn2$GENDER)
+table(penn2$AGE)
+table(penn2$MARITAL_STATUS)
+table(penn2$INCOME_MODEL)
+table(penn2$CATALISTSYNTHETIC_URBANITY_MODEL)
+mean(penn2$IDEOLOGY_MODEL, na.rm =TRUE)
+median(penn2$IDEOLOGY_MODEL, na.rm =TRUE)
+
+
+
+##Tier 3
+penn3 <- subset(dataset3, subset = (POSITION_STATE == "PA") & (TIER == "3"))
+table(penn3$RACE)
+table(penn3$GENDER)
+table(penn3$AGE)
+table(penn3$MARITAL_STATUS)
+table(penn3$INCOME_MODEL)
+table(penn3$CATALISTSYNTHETIC_URBANITY_MODEL)
+mean(penn3$IDEOLOGY_MODEL, na.rm =TRUE)
+median(penn3$IDEOLOGY_MODEL, na.rm =TRUE)
+
+
+
+##Tier 4
+penn4 <- subset(dataset3, subset = (POSITION_STATE == "PA") & (TIER == "4"))
+table(penn4$RACE)
+table(penn4$GENDER)
+table(penn4$AGE)
+table(penn4$MARITAL_STATUS)
+table(penn4$INCOME_MODEL)
+table(penn4$CATALISTSYNTHETIC_URBANITY_MODEL)
+mean(penn4$IDEOLOGY_MODEL, na.rm =TRUE)
+median(penn4$IDEOLOGY_MODEL, na.rm =TRUE)
+
+
