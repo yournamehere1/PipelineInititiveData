@@ -1,0 +1,259 @@
+
+### Load in data and display
+datagel <- read.delim(file.choose())
+View(datagel)
+
+######
+#####
+## TOTAL DATA SET
+max(datagel$AGE)
+
+max(datagel$AGE, na.rm = TRUE)
+ ## 109
+min(datagel$AGE, na.rm = TRUE)
+## 18
+mean(datagel$AGE, na.rm = TRUE)
+##54
+median(datagel$AGE, na.rm = TRUE)
+##52
+
+table(datagel$STATE)     
+### Top states, CA-673, NJ-550
+
+table(datagel$RACE)
+## Numbers by race
+##         asian          black      caucasian       hispanic nativeAmerican 
+ ##           64            440           6440            193             45 
+
+
+##Create a chart for racial breakdown
+slices <- c(64,440, 6400, 193, 45)
+lbls <- c("    Asian", "Black", "Caucasian", "Hispanic", "NativeAmerican")
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) ## add percent t
+lbls<- paste(lbls, "%", sep = " ")
+pie(slices, labels = lbls, col=rainbow(length(lbls)),
+    main="Overall Racial Breakdown")
+
+## numbers by gender
+table(datagel$GENDER)
+  ## 3677 female
+## 3557 male
+
+##Age Breakdown
+table(datagel$AGE)
+##18-29
+  # 103
+#30-49
+  #2,746
+##50-69
+  ##3307
+##70-Up
+  ## 1018
+
+##Create a chart fo Age breakdown
+slices <- c(103, 2746,3307, 1018)
+lbls <- c("Ages 18-29", "Ages 30-49", "Ages 50-69", "Ages 70 and Up")
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) ## add percent t
+lbls<- paste(lbls, "%", sep = " ")
+pie(slices, labels = lbls, col=rainbow(length(lbls)),
+    main="Overall Age Breakdown")
+
+
+##Create a chart for gender breakdown
+slices <- c(3677,3557)
+lbls <- c("Female", "Male")
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) ## add percent t
+lbls<- paste(lbls, "%", sep = " ")
+pie(slices, labels = lbls, col=rainbow(length(lbls)),
+    main="Overall Gender Breakdown")
+
+
+
+
+##############
+###########
+######
+## subset for "black" and find stats on subset 
+datebl <- datagel[datagel$RACE == "black", ]
+    # 440 Black people
+
+table(datebl$STATE)     
+  ### Top states, LA-67, NC-60
+
+#######
+dateBm <- subset(datagel, subset = (RACE == "black") & (GENDER == "male"))
+    ## 178 Black Males
+    mean(dateBm$AGE, na.rm = TRUE)
+    ## 57.4 avg age
+
+#######
+dateBf <- subset(datagel, subset = (RACE == "black") & (GENDER == "female"))
+    ## 260 Black Females
+    mean(dateBf$AGE, na.rm = TRUE)
+    ##56.5
+
+  #Create chart for gender breakdown
+    slices <- c(260,178)
+    lbls <- c("Female", "Male")
+    pct <- round(slices/sum(slices)*100)
+    lbls <- paste(lbls, pct) ## add percent t
+    lbls<- paste(lbls, "%", sep = " ")
+    pie(slices, labels = lbls, col=rainbow(length(lbls)),
+        main="Black Gender Breakdown")
+#########
+########
+########
+
+##subset for "caucasian" and find stats on subset 
+datecauc <- datagel[datagel$RACE == "caucasian", ]
+### 6440 white people
+
+    
+    table(datecauc$STATE)     
+    ### Top states, CA 528, MI-479
+    
+    #######
+    dateWm <- subset(datagel, subset = (RACE == "caucasian") & (GENDER == "male"))
+    ## 3204 white Males
+    mean(dateWm$AGE, na.rm = TRUE)
+    ## 54.5 avg age
+    
+    #######
+    dateWf <- subset(datagel, subset = (RACE == "caucasian") & (GENDER == "female"))
+    ## 3195 white Females
+    mean(dateWf$AGE, na.rm = TRUE)
+    ##53.8
+   
+    #Create chart for gender breakdown 
+    slices <- c(3195,3204)
+    lbls <- c("Female", "Male")
+    pct <- round(slices/sum(slices)*100)
+    lbls <- paste(lbls, pct) ## add percent t
+    lbls<- paste(lbls, "%", sep = " ")
+    pie(slices, labels = lbls, col=rainbow(length(lbls)),
+        main="Overall Gender Breakdown")
+#########
+########
+########
+    
+## subset for hispanic and find stats on subset 
+datehis <- datagel[datagel$RACE == "hispanic", ]
+## 193 hispanic people
+
+    table(datehis$STATE)     
+    ### Top states, CA 74
+    
+    #######
+    dateHm <- subset(datagel, subset = (RACE == "hispanic") & (GENDER == "male"))
+    ## 86 his Males
+    mean(dateHm$AGE, na.rm = TRUE)
+    ## 48 avg age
+    
+    #######
+    dateHf <- subset(datagel, subset = (RACE == "hispanic") & (GENDER == "female"))
+    ## 106 his Females
+    mean(dateHf$AGE, na.rm = TRUE)
+    ##48
+   
+    #Create chart for gender breakdown 
+    slices <- c(106,86)
+    lbls <- c("Female", "Male")
+    pct <- round(slices/sum(slices)*100)
+    lbls <- paste(lbls, pct) ## add percent t
+    lbls<- paste(lbls, "%", sep = " ")
+    pie(slices, labels = lbls, col=rainbow(length(lbls)),
+        main="Hispanic Gender Breakdown")
+    
+#########
+########
+########    
+## subset for nativeAmerican 
+datenat<- datagel[datagel$RACE == "nativeAmerican", ]
+## 45 natives
+    
+    table(datenat$STATE)     
+    ### Top states, az/ak 10
+    
+    #######
+    dateNm <- subset(datagel, subset = (RACE == "nativeAmerican") & (GENDER == "male"))
+    ## 10 Native Males
+    mean(dateNm$AGE, na.rm = TRUE)
+    ## 54 avg age
+    
+    #######
+    dateNf <- subset(datagel, subset = (RACE == "nativeAmerican") & (GENDER == "female"))
+    ## 33 Native Females
+    mean(dateNf$AGE, na.rm = TRUE)
+    ##55.6
+    table(datagel$RACE)
+   
+    #Create chart for gender breakdown 
+    slices <- c(33,10)
+    lbls <- c("Female", "Male")
+    pct <- round(slices/sum(slices)*100)
+    lbls <- paste(lbls, pct) ## add percent t
+    lbls<- paste(lbls, "%", sep = " ")
+    pie(slices, labels = lbls, col=rainbow(length(lbls)),
+        main="Native American Gender Breakdown")
+    
+######
+######
+  ###### Subset for "asain"
+    dateAsia<- datagel[datagel$RACE == "asian", ]
+    ## 64 Asian people
+    
+    table(dateAsia$STATE)     
+    ### Top states, CA 31 Nj 13
+    
+    #######
+    dateAm <- subset(datagel, subset = (RACE == "asian") & (GENDER == "male"))
+    ## 36 Asian Males
+    mean(dateAm$AGE, na.rm = TRUE)
+    ## 52 avg age
+    
+    #######
+    dateAf <- subset(datagel, subset = (RACE == "asian") & (GENDER == "female"))
+    ## 27 Asian Females
+    mean(dateAf$AGE, na.rm = TRUE)
+    ##51 avg age
+    
+    table(datagel$RACE)
+  ## excluding missing and unknown data   
+ 
+    #Create chart for gender breakdown 
+    
+    slices <- c(27,36)
+    lbls <- c("Female", "Male")
+    pct <- round(slices/sum(slices)*100)
+    lbls <- paste(lbls, pct) ## add percent t
+    lbls<- paste(lbls, "%", sep = " ")
+    pie(slices, labels = lbls, col=rainbow(length(lbls)),
+        main="Asian Gender Breakdown")
+    
+    
+    
+    
+#### Provide racial and gender breakdown for most populated states
+    
+    ## FOR CA
+    dataCA<- datagel[datagel$STATE == "CA", ]
+    
+    table(dataCA$GENDER)
+    table(dataCA$RACE)
+    
+    ## FOR NJ
+    dataNJ<- datagel[datagel$STATE == "NJ", ]
+    
+    table(dataNJ$GENDER)
+    table(dataNJ$RACE)
+    
+    ## For MI
+    dataMI<- datagel[datagel$STATE == "MI", ]
+    
+    table(dataMI$GENDER)
+    table(dataMI$RACE)
+    
+    
